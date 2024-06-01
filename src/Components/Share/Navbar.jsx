@@ -3,6 +3,8 @@ import { TiShoppingCart } from "react-icons/ti";
 import useAuth from "../../Hooks/UseAuth/useAuth";
 import { toast } from "react-toastify";
 
+import iconImg from "../../assets/Rgister/RegisterImg.png"
+
 
 
 const Navbar = () => {
@@ -21,7 +23,7 @@ const Navbar = () => {
         <li><NavLink to="/" > Home </NavLink></li>
         <li><NavLink to="shop" > Shop </NavLink></li>
 
-        <li><NavLink to="" >
+        <li><NavLink to="dfgdf" >
             <div className="indicator">
                 <span><TiShoppingCart className="h-7 w-7" /></span>
                 <span ></span>
@@ -29,9 +31,9 @@ const Navbar = () => {
             </div>
         </NavLink></li>
 
-        <li><Link to="/" className="p-1 m-0" >
+        <li><Link  className="p-1 m-0" >
 
-            <select className="select select-bordered select-sm p-0 m-1">
+            <select className="select select-bordered bg-none select-sm p-0 m-1">
                 <option>English</option>
                 <option>Bangla</option>
             </select>
@@ -63,7 +65,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar mt-2 fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,7 +75,7 @@ const Navbar = () => {
                             {navMenu}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Link to="/" className="btn btn-ghost text-xl"> <img className="h-8 w-12" src={iconImg} alt="" /> Madicare</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-4">
