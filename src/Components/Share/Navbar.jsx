@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><NavLink to="/" > Home </NavLink></li>
         <li><NavLink to="shop" > Shop </NavLink></li>
 
-        <li><NavLink to="cart" >
+        <li><NavLink to="register" >
             <div className="indicator">
                 <span><TiShoppingCart className="h-7 w-7" /></span>
                 <span ></span>
@@ -50,7 +50,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Join Us</Link>
+                    <Link to="login" className="btn">Join Us</Link>
                 </div>
             </div>
         </div>
