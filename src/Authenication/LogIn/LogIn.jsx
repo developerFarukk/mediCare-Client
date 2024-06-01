@@ -8,11 +8,13 @@ import regiImg from "../../assets/Rgister/RegisterImg.png"
 import { useState } from "react";
 import useAuth from "../../Hooks/UseAuth/useAuth";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../Hooks/Axiospablic/useAxiosPublic";
 
 
 
 const LogIn = () => {
 
+    const axiosPublic = useAxiosPublic();
     const { signInUser, googleLogIn, } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const [passwordError, setPasswordError] = useState('');
@@ -51,21 +53,19 @@ const LogIn = () => {
                 console.log(result.user);
 
                 // insart user email imformation send to database
-                // const userInfo = {
-                //     email: result.user?.email,
-                //     name: result.user?.displayName
-                // }
-                // axiosPublic.post('/users', userInfo)
-                //     .then(res => {
-                //         console.log(res.data);
-                //         navigate('/');
-                //     })
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    role: "user"  // default value
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+
+                        navigat('/');
+                    })
                 navigat('/');
                 toast.success("LogIn successfully");
-                // navigat;
-                // navigate(from, { replace: true });
-
-
             })
             .catch(() => {
                 // console.log(error)
