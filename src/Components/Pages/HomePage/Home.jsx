@@ -1,3 +1,4 @@
+import Footer from "./Footer/Footer";
 import Slider from "./Slider/Slider";
 
 
@@ -9,6 +10,11 @@ const Home = () => {
             {/* Slider section */}
             <div>
                 <Slider></Slider>
+            </div>
+
+            {/* Footer section */}
+            <div>
+                <Footer></Footer>
             </div>
         </div>
     );

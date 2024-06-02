@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="indicator">
                 <span><TiShoppingCart className="h-7 w-7" /></span>
                 <span ></span>
-                <span className="badge badge-md  indicator-item">+0</span>
+                <span className="badge badge-md   indicator-item">+0</span>
             </div>
         </NavLink></li>
 

@@ -2,28 +2,40 @@
 
 // import banner1 from "../../../../assets/Banner/HomeBanner.png"
 
+// import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import './styles.css';
+
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
 
 
 const Slider = () => {
     return (
-        <div>
-            <div className="carousel w-full">
-                <div id="item1" className="carousel-item w-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-                </div>
-                <div id="item2" className="carousel-item w-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-                </div>
-                <div id="item3" className="carousel-item w-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-                </div>
-            </div>
-            <div className="flex justify-center w-full py-2 gap-2">
-                <a href="#item1" className="btn btn-xs">1</a>
-                <a href="#item2" className="btn btn-xs">2</a>
-                <a href="#item3" className="btn btn-xs">3</a>
-            </div>
-        </div>
+        <>
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                loop={true}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+            >
+                <SwiperSlide><img src="https://opencart.templatemela.com/OPC04/OPC040084/image/cache/catalog/main-banner2-598x289.png" className="min-h-screen" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://opencart.templatemela.com/OPC04/OPC040084/image/cache/catalog/main-banner1-598x289.png" className='min-h-screen' alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://opencart.templatemela.com/OPC04/OPC040084/image/cache/catalog/main-banner3-598x289.png" className='min-h-screen' alt="" /></SwiperSlide>
+            </Swiper>
+        </>
     );
 };
 
