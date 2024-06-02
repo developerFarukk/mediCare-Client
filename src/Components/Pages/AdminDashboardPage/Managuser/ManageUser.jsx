@@ -4,7 +4,7 @@
 const ManageUser = () => {
     return (
         <div>
-            <p>Thia ia manage User</p>
+            <p>manage User</p>
         </div>
     );
 };
