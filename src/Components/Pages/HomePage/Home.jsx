@@ -40,13 +40,7 @@ const Home = () => {
             <div>
                 <Preview></Preview>
             </div>
-
-            {/* Footer section */}
-            <div>
-                <Footer></Footer>
-            </div>
-
-           
+             
         </div>
     );
 };

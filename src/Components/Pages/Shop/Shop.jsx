@@ -1,5 +1,6 @@
 import ShopBanner from "./ShopBanner/ShopBanner";
-import ShopCard from "./ShopCard/ShopCard";
+import ShopTable from "./ShopTable/ShopTable";
+
 
 
 
@@ -14,7 +15,7 @@ const Shop = () => {
 
             {/* Shop Card section */}
             <div>
-                <ShopCard></ShopCard>
+                <ShopTable></ShopTable>
             </div>
 
             
