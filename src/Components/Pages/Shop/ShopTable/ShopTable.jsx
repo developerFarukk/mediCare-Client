@@ -3,13 +3,22 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { FaEye } from "react-icons/fa";
+import ShopView from "./ShopView";
+import { useEffect, useState } from "react";
+import useAuth from "../../../../Hooks/UseAuth/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
 const ShopTable = () => {
 
-    // const [medicin, setMedicin] = useState([]);
     const axiosSecure = useAxiosSecure();
+    const [selectedId, setSelectedId] = useState();
+    const { user } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const { data: medicin = [] } = useQuery({
         queryKey: ['medicin'],
@@ -19,22 +28,93 @@ const ShopTable = () => {
         }
     })
 
-    console.log(medicin);
+    
+
+    const shop = medicin;
+    console.log(shop);
+
+
+
+    const handleId = (id) => {
+        console.log(id);
+        setSelectedId(id);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedId(null);
+    };
+
+
+
+    const hendleAddCard = (_id) => {
+        if (user && user.email && shop) {
+            const { category_name, image_url, per_unit_price, item_name, company_name, discount_percentage, item_generic_name, item_mass_unit, short_description, } = shop;
+            // send shop item to the database
+            const shopItem = {
+                medicinId: _id,
+                email: user.email,
+                userName: user.displayName,
+                category_name,
+                image_url,
+                per_unit_price,
+                item_name,
+                company_name,
+                discount_percentage,
+                item_generic_name,
+                item_mass_unit,
+                short_description
+
+
+            }
+            axiosSecure.post('/shop', shopItem)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: `${item_name} added to your shop cart`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        // refetch cart to update the cart items count
+                        // refetch();
+                    }
+
+                })
+        }
+        else {
+            console.log("error");
+            // Swal.fire({
+            //     title: "You are not Logged In",
+            //     text: "Please login to add to the cart?",
+            //     icon: "warning",
+            //     showCancelButton: true,
+            //     confirmButtonColor: "#3085d6",
+            //     cancelButtonColor: "#d33",
+            //     confirmButtonText: "Yes, login!"
+            // }).then((result) => {
+            //     if (result.isConfirmed) {
+            //         //   send the user to the login page
+            //         navigate('/login', { state: { from: location } })
+            //     }
+            // });
+        }
+    }
+
+
 
 
     return (
         <div className="mt-10 p-4">
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-                <div>This is Table {medicin.length}</div>
-            </div>
 
             {/* Table section */}
             <div>
                 <section className="container px-4 mx-auto text-yellow-100">
                     <div className="flex items-center gap-x-3">
-                        <h2 className="text-lg font-medium ">Team members</h2>
+                        <h2 className="text-lg font-medium ">Total Medicin Item </h2>
 
-                        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">100 users</span>
+                        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{medicin.length}</span>
                     </div>
 
                     <div className="flex flex-col mt-6">
@@ -106,26 +186,25 @@ const ShopTable = () => {
                                                     <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.company_name}</td>
                                                     <td className="px-4 py-4 text-sm whitespace-nowrap">
                                                         <div className="flex items-center gap-x-6">
-                                                            <button className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200   focus:outline-none">
+                                                            <button onClick={() => hendleAddCard(item._id)} className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200   focus:outline-none">
                                                                 <p className="">Select</p>
                                                             </button>
 
                                                             <button className="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
-                                                                    {/* Open the modal using document.getElementById('ID').showModal() method */}
-                                                                    <button className="btn btn-sm btn-secondary bg-white border-none" onClick={() => document.getElementById('my_modal_5').showModal()}><FaEye></FaEye></button>
-                                                                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                                                                        <div className="modal-box">
-                                                                            <div>
-                                                                                {/* <AddCategory></AddCategory> */} <p> ami</p>
-                                                                            </div>
-                                                                            <div className="modal-action">
-                                                                                <form method="dialog">
-                                                                                    {/* if there is a button in form, it will close the modal */}
-                                                                                    <button className="btn">Close</button>
-                                                                                </form>
-                                                                            </div>
+                                                                <button className="btn btn-sm btn-secondary bg-white border-none" onClick={() => document.getElementById('my_modal_5').showModal(item._id)}><FaEye onClick={() => handleId(item._id)}></FaEye></button>
+
+                                                                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                                                                    <div className="modal-box">
+                                                                        <ShopView id={selectedId}></ShopView>
+                                                                        <div className="modal-action">
+                                                                            <form method="dialog">
+                                                                                {/* if there is a button in form, it will close the modal */}
+                                                                                <button onClick={handleCloseModal} className="btn">Close</button>
+                                                                            </form>
                                                                         </div>
-                                                                    </dialog>
+                                                                    </div>
+                                                                </dialog>
+
                                                             </button>
                                                         </div>
                                                     </td>
