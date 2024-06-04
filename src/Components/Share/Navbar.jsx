@@ -4,11 +4,13 @@ import useAuth from "../../Hooks/UseAuth/useAuth";
 import { toast } from "react-toastify";
 
 import iconImg from "../../assets/Rgister/RegisterImg.png"
+import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
 
 
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const [ shop ] = useMedicinCard();
 
     const handleSignOut = () => {
         logOut()
@@ -20,14 +22,14 @@ const Navbar = () => {
 
     const navMenu = <>
 
-        <li><NavLink to="/" > Home </NavLink></li>
+        <li><NavLink to="/"  > Home </NavLink></li>
         <li><NavLink to="shop" > Shop </NavLink></li>
 
-        <li><NavLink to="dfgdf" >
+        <li><NavLink to="cartpage" >
             <div className="indicator">
-                <span><TiShoppingCart className="h-7 w-7" /></span>
+                <span><TiShoppingCart className="h-6 w-6" /></span>
                 <span ></span>
-                <span className="badge badge-md   indicator-item">+0</span>
+                <span className="badge badge-md bg-white text-black border-none  indicator-item">+{shop.length}</span>
             </div>
         </NavLink></li>
 
@@ -71,7 +73,7 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52 gap-4">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-300 rounded-box w-52 gap-4">
                             {navMenu}
                         </ul>
                     </div>

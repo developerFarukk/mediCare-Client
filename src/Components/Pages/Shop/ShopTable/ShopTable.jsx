@@ -1,13 +1,13 @@
 
-// import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { FaEye } from "react-icons/fa";
 import ShopView from "./ShopView";
-import { useEffect, useState } from "react";
 import useAuth from "../../../../Hooks/UseAuth/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useMedicinCard from "../../../../Hooks/UseMedicincard/useMedicinCard";
+import { useState } from "react";
 
 
 
@@ -16,6 +16,8 @@ const ShopTable = () => {
     const axiosSecure = useAxiosSecure();
     const [selectedId, setSelectedId] = useState();
     const { user } = useAuth();
+
+    const [ , refetch ] = useMedicinCard();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,11 +29,6 @@ const ShopTable = () => {
             return res.data;
         }
     })
-
-    
-
-    const shop = medicin;
-    console.log(shop);
 
 
 
@@ -45,10 +42,10 @@ const ShopTable = () => {
     };
 
 
+    const hendleAddCard = (item) => {
+        if (user && user.email) {
+            const { category_name, image_url, per_unit_price, item_name, company_name, discount_percentage, item_generic_name, item_mass_unit, short_description, _id} = item
 
-    const hendleAddCard = (_id) => {
-        if (user && user.email && shop) {
-            const { category_name, image_url, per_unit_price, item_name, company_name, discount_percentage, item_generic_name, item_mass_unit, short_description, } = shop;
             // send shop item to the database
             const shopItem = {
                 medicinId: _id,
@@ -71,34 +68,34 @@ const ShopTable = () => {
                     console.log(res.data)
                     if (res.data.insertedId) {
                         Swal.fire({
-                            position: "top-end",
+                            position: "center",
                             icon: "success",
                             title: `${item_name} added to your shop cart`,
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        // refetch cart to update the cart items count
-                        // refetch();
+                        // refetch cart to update the shop items count
+                        refetch()
                     }
 
                 })
         }
         else {
             console.log("error");
-            // Swal.fire({
-            //     title: "You are not Logged In",
-            //     text: "Please login to add to the cart?",
-            //     icon: "warning",
-            //     showCancelButton: true,
-            //     confirmButtonColor: "#3085d6",
-            //     cancelButtonColor: "#d33",
-            //     confirmButtonText: "Yes, login!"
-            // }).then((result) => {
-            //     if (result.isConfirmed) {
-            //         //   send the user to the login page
-            //         navigate('/login', { state: { from: location } })
-            //     }
-            // });
+            Swal.fire({
+                title: "You are not Logged In",
+                text: "Please login to add to the cart?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, login!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //   send the user to the login page
+                    navigate('/login', { state: { from: location } })
+                }
+            });
         }
     }
 
@@ -186,7 +183,7 @@ const ShopTable = () => {
                                                     <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.company_name}</td>
                                                     <td className="px-4 py-4 text-sm whitespace-nowrap">
                                                         <div className="flex items-center gap-x-6">
-                                                            <button onClick={() => hendleAddCard(item._id)} className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200   focus:outline-none">
+                                                            <button onClick={() => hendleAddCard(item)} className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200   focus:outline-none">
                                                                 <p className="">Select</p>
                                                             </button>
 

@@ -11,6 +11,8 @@ import ManageCatagory from "../Components/Pages/AdminDashboardPage/ManageCatagor
 import Payment from "../Components/Pages/AdminDashboardPage/Payment/Payment";
 import SalesReport from "../Components/Pages/AdminDashboardPage/SalseReport/SalesReport";
 import Advertise from "../Components/Pages/AdminDashboardPage/Advertise/Advertise";
+import PrivetRout from "../Authenication/PrivetRout/PrivetRout";
+import CartPage from "../Components/CartPage/CartPage";
 
 
 
@@ -34,12 +36,16 @@ const Router = createBrowserRouter([
         {
             path: "shop",
             element: <Shop></Shop>
+        },
+        {
+          path: "cartpage",
+          element: <CartPage></CartPage>
         }
       ]
     },
     {
       path: "deshoard",
-      element: <DashboardAll></DashboardAll>,
+      element: <PrivetRout><DashboardAll></DashboardAll></PrivetRout>,
       children: [
 
         // Admin Root Setion
