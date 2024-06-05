@@ -15,12 +15,14 @@ import PrivetRout from "../Authenication/PrivetRout/PrivetRout";
 import CartPage from "../Components/CartPage/CartPage";
 import CheckOut from "../Components/CheckoutPage/CheckOut";
 import Invoice from "../Components/InvoicePage/Invoice";
+import Error from "../Components/ErrorPage/Error";
 
 
 
 const Router = createBrowserRouter([
     {
       path: "/",
+      errorElement: <Error></Error>,
       element: <HomeRoot></HomeRoot>,
       children: [
         {
@@ -53,6 +55,7 @@ const Router = createBrowserRouter([
         }
       ]
     },
+
     {
       path: "deshoard",
       element: <PrivetRout><DashboardAll></DashboardAll></PrivetRout>,

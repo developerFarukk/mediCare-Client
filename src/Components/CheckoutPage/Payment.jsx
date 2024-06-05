@@ -11,13 +11,14 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 const Payment = () => {
 
-    const axiosSecure = useAxiosSecure();
+    
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [shop, refetch] = useMedicinCard();
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
 
     const totalPrice = shop.reduce((total, item) => total + item.per_unit_price, 0)
@@ -84,8 +85,9 @@ const Payment = () => {
                 const payment = {
                     email: user.email,
                     price: totalPrice,
+                    idPrice: shop.map(priceId => priceId.per_unit_price),
                     transactionId: paymentIntent.id,
-                    date: new Date(), // utc date convert. use moment js to 
+                    date: new Date(), 
                     cartIds: shop.map(item => item._id),
                     menuItemIds: shop.map(item => item.medicinId),
                     status: 'pending'

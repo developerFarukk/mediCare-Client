@@ -11,7 +11,7 @@ const HomeRoot = () => {
     const location = useLocation();
     const noHeaderFooter = location.pathname.includes('login') ||
         location.pathname.includes('register') ||
-        location.pathname.includes('checkout');
+        location.pathname.includes('checkout') || location.pathname.includes('invoice');
 
     return (
         <div>
