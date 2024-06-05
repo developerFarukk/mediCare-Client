@@ -9,7 +9,9 @@ import Footer from "../Components/Pages/HomePage/Footer/Footer";
 const HomeRoot = () => {
 
     const location = useLocation();
-    const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('register');
+    const noHeaderFooter = location.pathname.includes('login') ||
+        location.pathname.includes('register') ||
+        location.pathname.includes('checkout');
 
     return (
         <div>

@@ -13,6 +13,8 @@ import SalesReport from "../Components/Pages/AdminDashboardPage/SalseReport/Sale
 import Advertise from "../Components/Pages/AdminDashboardPage/Advertise/Advertise";
 import PrivetRout from "../Authenication/PrivetRout/PrivetRout";
 import CartPage from "../Components/CartPage/CartPage";
+import CheckOut from "../Components/CheckoutPage/CheckOut";
+import Invoice from "../Components/InvoicePage/Invoice";
 
 
 
@@ -39,7 +41,15 @@ const Router = createBrowserRouter([
         },
         {
           path: "cartpage",
-          element: <CartPage></CartPage>
+          element: <PrivetRout><CartPage></CartPage></PrivetRout>
+        },
+        {
+          path: "checkout",
+          element: <CheckOut></CheckOut>
+        },
+        {
+          path: "invoice",
+          element: <Invoice></Invoice>
         }
       ]
     },

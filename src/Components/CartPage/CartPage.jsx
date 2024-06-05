@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/AxiosSecure/useAxiosSecure";
 import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
 import CartBanner from "./CartBanner/CartBanner";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 
@@ -11,6 +12,8 @@ const CartPage = () => {
     const [shop, refetch] = useMedicinCard();
     // console.log(shop);
     const axiosSecure = useAxiosSecure();
+    const totalPrice = shop.reduce((total, item) => total + item.per_unit_price, 0);
+
 
     const handleDelete = id => {
         Swal.fire({
@@ -52,10 +55,16 @@ const CartPage = () => {
             <div>
                 <div>
                     <section className="container px-4 mx-auto text-yellow-100 mt-10 ">
-                        <div className="flex items-center gap-x-3 justify-center">
-                            <h2 className="text-lg font-medium ">Total added Cart</h2>
+                        
+                        <div className="lg:flex justify-evenly mt-4 mb-8">
+                            <h2 className="text-4xl">Total added Medicin: {shop.length}</h2>
+                            <h2 className="text-4xl">Total Price: ${totalPrice}</h2>
+                            {shop.length ? <Link to="/checkout">
+                                <button className="btn btn-primary">Checkout</button>
+                            </Link> :
+                                <button disabled className="btn btn-primary">Checkout</button>
+                            }
 
-                            <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{shop.length}</span>
                         </div>
 
                         <div className="flex flex-col mt-6">
@@ -143,7 +152,7 @@ const CartPage = () => {
                                                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.company_name}</td>
                                                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                                                             <div className="flex items-center gap-x-6">
-                                                                <button onClick={() => hendleAddCard(item)} className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200   focus:outline-none">
+                                                                <button  className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200   focus:outline-none">
                                                                     <p className="">Select</p>
                                                                 </button>
 
@@ -166,6 +175,13 @@ const CartPage = () => {
                         </div>
 
                     </section>
+
+                    {/* check Out page */}
+                    <div className="justify-end grid p-4 mr-4">
+                        <Link to="/">
+                            <button className="btn btn-active btn-primary text-yellow-100">Back to Home</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
