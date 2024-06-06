@@ -1,91 +1,47 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { HiHome } from "react-icons/hi2";
-import { FaUsers } from "react-icons/fa6";
-import { AiFillMedicineBox } from "react-icons/ai";
-import { MdOutlinePayments } from "react-icons/md";
-import { MdBugReport } from "react-icons/md";
-import { FcAdvertising } from "react-icons/fc";
+import { Link, NavLink, Outlet } from "react-router-dom";
+
 import { TiHomeOutline } from "react-icons/ti";
-import { MdManageHistory } from "react-icons/md";
+import useRole from "../../../Hooks/Role/useRole";
+import UserBoard from "../../Pages/UserDashboard/UserBoard/UserBoard";
+import SellerBoard from "../../Pages/SellerDashbordPage/SellerBoard/SellerBoard";
+import AdminBoard from "../../Pages/AdminDashboardPage/AdminBoard/AdminBoard";
+
+import iconImg from "../../../assets/Rgister/RegisterImg.png"
 
 
 
 const DashboardAll = () => {
+
+    const [role, isLoading] = useRole()
+    console.log(role, isLoading);
+
+
     return (
         <div>
 
             {/* Dashboadr Sidbar section */}
             <div className="flex">
                 <div className="w-64 min-h-screen bg-blue-200 text-green-900 font-medium">
+
+                    <Link className="btn btn-ghost text-xl justify-center text-center p-4 mt-4 flex"> <img className="h-8 w-12" src={iconImg} alt="" /> Madicare</Link>
+                    <h2 className="uppercase text-xl font-bold text-center p-2 mt-4 text-blue-500 bg-green-100">{role} DASHBOARD</h2>
+
                     <ul className="menu p-4 gap-2">
 
                         {/* Admin section */}
-                        <li>
-                            <NavLink to="/deshoard/adminhome">
-                                <HiHome />
-                                Admin Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/manageuser">
-                                <FaUsers />
-                                Manage users</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/catagory">
-                                <AiFillMedicineBox />
-                                Manage Catagory</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/payment">
-                                <MdOutlinePayments />
-                                Payment management</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/report">
-                                <MdBugReport />
-                                Sales Report</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/advertise">
-                                <FcAdvertising />
-                                Manage banner Advertise</NavLink>
-                        </li>
-                        {/* Admin Section End */}
+
+                        {role === 'admin' && <AdminBoard></AdminBoard>}
+
 
                         {/* ******************************************************* */}
 
                         {/* Seller dashboard section */}
-                        <li>
-                            <NavLink to="/deshoard/sellerhome">
-                                <HiHome />
-                                Seller Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/sellermedicin">
-                                <MdManageHistory />
-                                Manage Medicines</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/sellerpay">
-                                <MdOutlinePayments />
-                                Payment History</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/deshoard/selleradvertice">
-                                <FcAdvertising />
-                                Ask For Advertisement</NavLink>
-                        </li>
 
-                    {/*  User dashboard  ***************************************************** */}
-                    <li>
-                            <NavLink to="/deshoard/userpay">
-                                <MdOutlinePayments />
-                               User Payment History</NavLink>
-                        </li>
+                        {role === 'seller' && <SellerBoard></SellerBoard>}
 
+                        {/*  User dashboard  ***************************************************** */}
 
-
-
+                        {role === 'user' && <UserBoard></UserBoard>}
 
 
                         {/* Divider section */}
@@ -94,7 +50,7 @@ const DashboardAll = () => {
                         <li>
                             <NavLink to="/">
                                 <TiHomeOutline />
-                                Home</NavLink>
+                              Back to Home Page</NavLink>
                         </li>
 
                     </ul>
