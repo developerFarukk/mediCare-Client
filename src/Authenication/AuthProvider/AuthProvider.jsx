@@ -65,7 +65,6 @@ const AuthProvider = ({ children }) => {
                     })
             }
             else {
-                // TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
                 localStorage.removeItem('access-token');
                 setLoading(false);
             }
@@ -76,16 +75,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [axiosPublic])
 
-    // useEffect(() => {
-    //     const unSubcribe = onAuthStateChanged(auth, currentUser => {
-    //         console.log('user in th e state changed', currentUser)
-    //         setUser(currentUser)
-    //         setLoading(false)
-    //     })
-    //     return () => {
-    //         unSubcribe();
-    //     }
-    // }, [])
 
     const userInfo = {
         user,

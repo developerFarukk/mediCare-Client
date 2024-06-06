@@ -16,6 +16,11 @@ import CartPage from "../Components/CartPage/CartPage";
 import CheckOut from "../Components/CheckoutPage/CheckOut";
 import Invoice from "../Components/InvoicePage/Invoice";
 import Error from "../Components/ErrorPage/Error";
+import SellerHome from "../Components/Pages/SellerDashbordPage/SellerHome/SellerHome";
+import ManageMedicin from "../Components/Pages/SellerDashbordPage/ManageMedicines/ManageMedicin";
+import SellerPayHistory from "../Components/Pages/SellerDashbordPage/SellerPaymentHistory/SellerPayHistory";
+import SellerAdvertic from "../Components/Pages/SellerDashbordPage/SellerAdvertis/SellerAdvertic";
+import UserPayment from "../Components/Pages/UserDashboard/UserPayment/UserPayment";
 
 
 
@@ -85,7 +90,32 @@ const Router = createBrowserRouter([
         {
           path: "advertise",
           element: <Advertise></Advertise>
-        }
+        },
+        
+        // Seller dashboard *******************************
+        {
+          path: "sellerhome",
+          element: <SellerHome></SellerHome>
+        },
+        {
+          path: "sellermedicin",
+          element: <ManageMedicin></ManageMedicin>
+        },
+        {
+          path: "sellerpay",
+          element: <SellerPayHistory></SellerPayHistory>
+        },
+        {
+          path: "selleradvertice",
+          element: <SellerAdvertic></SellerAdvertic>
+        },
+
+        // User Dashboard *****************************************
+        {
+          path: "userpay",
+          element: <UserPayment></UserPayment>
+        },
+
       ]
     }
   ]);

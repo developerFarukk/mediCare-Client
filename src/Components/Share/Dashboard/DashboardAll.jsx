@@ -6,6 +6,7 @@ import { MdOutlinePayments } from "react-icons/md";
 import { MdBugReport } from "react-icons/md";
 import { FcAdvertising } from "react-icons/fc";
 import { TiHomeOutline } from "react-icons/ti";
+import { MdManageHistory } from "react-icons/md";
 
 
 
@@ -51,12 +52,48 @@ const DashboardAll = () => {
                         </li>
                         {/* Admin Section End */}
 
+                        {/* ******************************************************* */}
+
+                        {/* Seller dashboard section */}
+                        <li>
+                            <NavLink to="/deshoard/sellerhome">
+                                <HiHome />
+                                Seller Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/deshoard/sellermedicin">
+                                <MdManageHistory />
+                                Manage Medicines</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/deshoard/sellerpay">
+                                <MdOutlinePayments />
+                                Payment History</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/deshoard/selleradvertice">
+                                <FcAdvertising />
+                                Ask For Advertisement</NavLink>
+                        </li>
+
+                    {/*  User dashboard  ***************************************************** */}
+                    <li>
+                            <NavLink to="/deshoard/userpay">
+                                <MdOutlinePayments />
+                               User Payment History</NavLink>
+                        </li>
+
+
+
+
+
+
                         {/* Divider section */}
                         <div className="divider"></div>
 
                         <li>
                             <NavLink to="/">
-                            <TiHomeOutline />
+                                <TiHomeOutline />
                                 Home</NavLink>
                         </li>
 
