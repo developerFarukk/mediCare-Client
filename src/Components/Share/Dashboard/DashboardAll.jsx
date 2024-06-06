@@ -6,6 +6,9 @@ import UserBoard from "../../Pages/UserDashboard/UserBoard/UserBoard";
 import SellerBoard from "../../Pages/SellerDashbordPage/SellerBoard/SellerBoard";
 import AdminBoard from "../../Pages/AdminDashboardPage/AdminBoard/AdminBoard";
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+
 import iconImg from "../../../assets/Rgister/RegisterImg.png"
 
 
@@ -50,13 +53,14 @@ const DashboardAll = () => {
                         <li>
                             <NavLink to="/">
                                 <TiHomeOutline />
-                              Back to Home Page</NavLink>
+                                Back to Home Page</NavLink>
                         </li>
 
                     </ul>
                 </div>
                 {/* dashboard content */}
                 <div className="flex-1 p-8">
+                    <ToastContainer />
                     <Outlet></Outlet>
                 </div>
             </div>
