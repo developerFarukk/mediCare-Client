@@ -21,103 +21,109 @@ import ManageMedicin from "../Components/Pages/SellerDashbordPage/ManageMedicine
 import SellerPayHistory from "../Components/Pages/SellerDashbordPage/SellerPaymentHistory/SellerPayHistory";
 import SellerAdvertic from "../Components/Pages/SellerDashbordPage/SellerAdvertis/SellerAdvertic";
 import UserPayment from "../Components/Pages/UserDashboard/UserPayment/UserPayment";
+import UpdateMedicin from "../Components/Pages/AdminDashboardPage/ManageCatagory/UpdateMedicin/UpdateMedicin";
 
 
 
 const Router = createBrowserRouter([
-    {
-      path: "/",
-      errorElement: <Error></Error>,
-      element: <HomeRoot></HomeRoot>,
-      children: [
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        {
-            path: "login",
-            element: <LogIn></LogIn>
-        },
-        {
-            path: "register",
-            element: <Register></Register>
-        },
-        {
-            path: "shop",
-            element: <Shop></Shop>
-        },
-        {
-          path: "cartpage",
-          element: <PrivetRout><CartPage></CartPage></PrivetRout>
-        },
-        {
-          path: "checkout",
-          element: <CheckOut></CheckOut>
-        },
-        {
-          path: "invoice",
-          element: <Invoice></Invoice>
-        }
-      ]
-    },
+  {
+    path: "/",
+    errorElement: <Error></Error>,
+    element: <HomeRoot></HomeRoot>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>
+      },
+      {
+        path: "login",
+        element: <LogIn></LogIn>
+      },
+      {
+        path: "register",
+        element: <Register></Register>
+      },
+      {
+        path: "shop",
+        element: <Shop></Shop>
+      },
+      {
+        path: "cartpage",
+        element: <PrivetRout><CartPage></CartPage></PrivetRout>
+      },
+      {
+        path: "checkout",
+        element: <CheckOut></CheckOut>
+      },
+      {
+        path: "invoice",
+        element: <Invoice></Invoice>
+      }
+    ]
+  },
 
-    {
-      path: "deshoard",
-      element: <PrivetRout><DashboardAll></DashboardAll></PrivetRout>,
-      children: [
+  {
+    path: "deshoard",
+    element: <PrivetRout><DashboardAll></DashboardAll></PrivetRout>,
+    children: [
 
-        // Admin Root Setion
-        {
-          path: "adminhome",
-          element: <AdminHome></AdminHome>
-        },
-        {
-          path: "manageuser",
-          element: <ManageUser></ManageUser>
-        },
-        {
-          path: "catagory",
-          element: <ManageCatagory></ManageCatagory>
-        },
-        {
-          path: "payment",
-          element: <Payment></Payment>
-        },
-        {
-          path: "report",
-          element: <SalesReport></SalesReport>
-        },
-        {
-          path: "advertise",
-          element: <Advertise></Advertise>
-        },
-        
-        // Seller dashboard *******************************
-        {
-          path: "sellerhome",
-          element: <SellerHome></SellerHome>
-        },
-        {
-          path: "sellermedicin",
-          element: <ManageMedicin></ManageMedicin>
-        },
-        {
-          path: "sellerpay",
-          element: <SellerPayHistory></SellerPayHistory>
-        },
-        {
-          path: "selleradvertice",
-          element: <SellerAdvertic></SellerAdvertic>
-        },
+      // Admin Root Setion
+      {
+        path: "adminhome",
+        element: <AdminHome></AdminHome>
+      },
+      {
+        path: "manageuser",
+        element: <ManageUser></ManageUser>
+      },
+      {
+        path: "catagory",
+        element: <ManageCatagory></ManageCatagory>
+      },
+      {
+        path: "updatecatagory/:id",
+        element: <UpdateMedicin></UpdateMedicin>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/medicin/${params.id}`)
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>
+      },
+      {
+        path: "report",
+        element: <SalesReport></SalesReport>
+      },
+      {
+        path: "advertise",
+        element: <Advertise></Advertise>
+      },
 
-        // User Dashboard *****************************************
-        {
-          path: "userpay",
-          element: <UserPayment></UserPayment>
-        },
+      // Seller dashboard *******************************
+      {
+        path: "sellerhome",
+        element: <SellerHome></SellerHome>
+      },
+      {
+        path: "sellermedicin",
+        element: <ManageMedicin></ManageMedicin>
+      },
+      {
+        path: "sellerpay",
+        element: <SellerPayHistory></SellerPayHistory>
+      },
+      {
+        path: "selleradvertice",
+        element: <SellerAdvertic></SellerAdvertic>
+      },
 
-      ]
-    }
-  ]);
+      // User Dashboard *****************************************
+      {
+        path: "userpay",
+        element: <UserPayment></UserPayment>
+      },
+
+    ]
+  }
+]);
 
 export default Router;

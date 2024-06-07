@@ -84,6 +84,7 @@ const Payment = () => {
                 // now save the payment in the database
                 const payment = {
                     email: user.email,
+                    name: user.displayName,
                     price: totalPrice,
                     idPrice: shop.map(priceId => priceId.per_unit_price),
                     transactionId: paymentIntent.id,

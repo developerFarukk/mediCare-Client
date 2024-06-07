@@ -17,9 +17,6 @@ const Shop = () => {
             <div>
                 <ShopTable></ShopTable>
             </div>
-
-            
-
         </div>
     );
 };
