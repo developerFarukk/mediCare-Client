@@ -65,7 +65,7 @@ const Payment = () => {
                                         <td>{pay.name}</td>
                                         <td>{pay.email}</td>
                                         <td>{pay._id}</td>
-                                        <td>{pay.date}</td>
+                                        <td>{new Date(pay.date).toLocaleDateString()}</td>
 
                                         <td>
                                             {/* <button className="btn btn-sm  bg-red-800 rounded-full"><p>{pay.status}</p></button> */}

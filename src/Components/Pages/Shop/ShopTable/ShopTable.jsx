@@ -30,7 +30,7 @@ const ShopTable = () => {
         }
     })
 
-
+console.log(medicin);
 
     const handleId = (id) => {
         console.log(id);
@@ -44,7 +44,7 @@ const ShopTable = () => {
 
     const hendleAddCard = (item) => {
         if (user && user.email) {
-            const { category_name, image_url, per_unit_price, item_name, company_name, discount_percentage, item_generic_name, item_mass_unit, short_description, _id} = item
+            const { category_name, image_url, per_unit_price, item_name, sellerEmail, company_name, discount_percentage, item_generic_name, item_mass_unit, short_description, _id} = item
 
             // send shop item to the database
             const shopItem = {
@@ -59,7 +59,8 @@ const ShopTable = () => {
                 discount_percentage,
                 item_generic_name,
                 item_mass_unit,
-                short_description
+                short_description,
+                sellerEmail
 
 
             }

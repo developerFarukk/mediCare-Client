@@ -9,9 +9,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 
 
-const Payment = () => {
+const PaymentUser = () => {
 
-    
+
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [shop, refetch] = useMedicinCard();
@@ -86,11 +86,13 @@ const Payment = () => {
                     email: user.email,
                     name: user.displayName,
                     price: totalPrice,
+                    sellerEmail: shop.map(seller => seller.sellerEmail),
                     idPrice: shop.map(priceId => priceId.per_unit_price),
                     transactionId: paymentIntent.id,
-                    date: new Date(), 
+                    date: new Date(),
                     cartIds: shop.map(item => item._id),
                     menuItemIds: shop.map(item => item.medicinId),
+                    menuItemName: shop.map(item => item.item_name),
                     status: 'pending'
                 }
 
@@ -137,7 +139,7 @@ const Payment = () => {
                     <button className="btn btn-sm ml-4 btn-primary mt-6 " type="submit" disabled={!stripe || !clientSecret}>
                         Checkout
                     </button>
-                    
+
                     <p className="text-red-600">{error}</p>
                 </form>
             </div>
@@ -145,4 +147,4 @@ const Payment = () => {
     );
 };
 
-export default Payment;
+export default PaymentUser;

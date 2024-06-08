@@ -2,10 +2,13 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { toast } from "react-toastify";
 import useMediAll from "../../../../Hooks/UseMedicinAll/useMediAll";
+import useAuth from "../../../../Hooks/UseAuth/useAuth";
 
 
 
 const AddCategory = ( { onSuccess } ) => {
+
+    const { user } = useAuth();
 
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useMediAll();
@@ -13,7 +16,7 @@ const AddCategory = ( { onSuccess } ) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm(
         {
             defaultValues: {
-                discount: 0
+                discount: 0,
             }
         }
     );
@@ -39,6 +42,7 @@ const AddCategory = ( { onSuccess } ) => {
                 item_generic_name: data.genericName,
                 item_mass_unit: data.massUnit,
                 short_description: data.shortDescription,
+                sellerEmail: user.email,
                 date: new Date()
 
             }

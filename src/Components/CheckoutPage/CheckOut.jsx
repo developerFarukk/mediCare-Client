@@ -1,9 +1,9 @@
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import Payment from "./Payment";
 import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
 import { Link } from "react-router-dom";
+import PaymentUser from "./PaymentUser";
 
 
 
@@ -32,7 +32,7 @@ const CheckOut = () => {
 
                                 <div className="border-4 border-yellow-300 p-6 rounded-lg">
                                     <Elements stripe={stripePromise} >
-                                        <Payment></Payment>
+                                        <PaymentUser></PaymentUser>
                                     </Elements>
                                 </div>
 

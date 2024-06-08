@@ -9,7 +9,7 @@ import AdminHome from "../Components/Pages/AdminDashboardPage/AdminHome/AdminHom
 import ManageUser from "../Components/Pages/AdminDashboardPage/Managuser/ManageUser";
 import ManageCatagory from "../Components/Pages/AdminDashboardPage/ManageCatagory/ManageCatagory";
 import Payment from "../Components/Pages/AdminDashboardPage/Payment/Payment";
-import SalesReport from "../Components/Pages/AdminDashboardPage/SalseReport/SalesReport";
+// import SalesReport from "../Components/Pages/AdminDashboardPage/SalseReport/SalesReport";
 import Advertise from "../Components/Pages/AdminDashboardPage/Advertise/Advertise";
 import PrivetRout from "../Authenication/PrivetRout/PrivetRout";
 import CartPage from "../Components/CartPage/CartPage";
@@ -22,6 +22,7 @@ import SellerPayHistory from "../Components/Pages/SellerDashbordPage/SellerPayme
 import SellerAdvertic from "../Components/Pages/SellerDashbordPage/SellerAdvertis/SellerAdvertic";
 import UserPayment from "../Components/Pages/UserDashboard/UserPayment/UserPayment";
 import UpdateMedicin from "../Components/Pages/AdminDashboardPage/ManageCatagory/UpdateMedicin/UpdateMedicin";
+import SellerReport from "../Components/Pages/AdminDashboardPage/SalseReport/SellerReport";
 
 
 
@@ -91,7 +92,8 @@ const Router = createBrowserRouter([
       },
       {
         path: "report",
-        element: <SalesReport></SalesReport>
+        // element: <SalesReport></SalesReport>
+        element: <SellerReport></SellerReport>
       },
       {
         path: "advertise",
