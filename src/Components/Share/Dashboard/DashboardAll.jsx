@@ -44,7 +44,7 @@ const DashboardAll = () => {
 
                         {/*  User dashboard  ***************************************************** */}
 
-                        {role === 'user' && <UserBoard></UserBoard>}
+                        {role === 'User' && <UserBoard></UserBoard>}
 
 
                         {/* Divider section */}
