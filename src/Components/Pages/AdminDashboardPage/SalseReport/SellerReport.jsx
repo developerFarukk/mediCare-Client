@@ -132,57 +132,6 @@ const SalesReport = () => {
         doc.save('sales_report.pdf');
     };
 
-    // const exportDOCX = () => {
-    //     const doc = new Document();
-    //     const tableRows = [
-    //         new TableRow({
-    //             children: [
-    //                 new TableCell({ children: [new Paragraph('SL No')] }),
-    //                 new TableCell({ children: [new Paragraph('Buyer Email')] }),
-    //                 new TableCell({ children: [new Paragraph('Seller Email')] }),
-    //                 new TableCell({ children: [new Paragraph('Medicin Name')] }),
-    //                 new TableCell({ children: [new Paragraph('Medicin ID')] }),
-    //                 new TableCell({ children: [new Paragraph('Medicin Price')] }),
-    //                 new TableCell({ children: [new Paragraph('Date')] }),
-    //                 new TableCell({ children: [new Paragraph('Total Price')] }),
-    //             ],
-    //         }),
-    //     ];
-
-    //     salesData.forEach((row, index) => {
-    //         tableRows.push(
-    //             new TableRow({
-    //                 children: [
-    //                     new TableCell({ children: [new Paragraph(index + 1)] }),
-    //                     new TableCell({ children: [new Paragraph(row.email)] }),
-    //                     new TableCell({ children: [new Paragraph(row.sellerEmail.join(', '))] }),
-    //                     new TableCell({ children: [new Paragraph(row.menuItemName.join(', '))] }),
-    //                     new TableCell({ children: [new Paragraph(row.menuItemIds.join(', '))] }),
-    //                     new TableCell({ children: [new Paragraph(row.idPrice.join(', '))] }),
-    //                     new TableCell({ children: [new Paragraph(new Date(row.date).toLocaleDateString())] }),
-    //                     new TableCell({ children: [new Paragraph(row.price)] }),
-    //                 ],
-    //             })
-    //         );
-    //     });
-
-    //     const table = new Table({
-    //         rows: tableRows,
-    //         width: {
-    //             size: 100,
-    //             type: WidthType.PERCENTAGE,
-    //         },
-    //     });
-
-    //     doc.addSection({
-    //         children: [table],
-    //     });
-
-    //     Packer.toBlob(doc).then(blob => {
-    //         saveAs(blob, 'sales_report.docx');
-    //     });
-    // };
-
     const exportDOCX = () => {
         const doc = new Document();
 
@@ -317,7 +266,7 @@ const SalesReport = () => {
                                     {index + 1}
                                 </td>
 
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">{medi.original.name}</td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">{medi.original.email}</td>
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                                     {medi.original.sellerEmail?.map(seller => <td key={index} className='flex'>
                                         {seller}

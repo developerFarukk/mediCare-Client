@@ -40,7 +40,7 @@ const DashboardAll = () => {
 
                         {/* Seller dashboard section */}
 
-                        {role === 'seller' && <SellerBoard></SellerBoard>}
+                        {role === 'Seller' && <SellerBoard></SellerBoard>}
 
                         {/*  User dashboard  ***************************************************** */}
 

@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { toast } from "react-toastify";
-import useMediAll from "../../../../Hooks/UseMedicinAll/useMediAll";
 import useAuth from "../../../../Hooks/UseAuth/useAuth";
+import useSellerMedicin from "../../../../Hooks/SellerMedisinss/useSellerMedicin";
 
 
 
@@ -11,7 +11,7 @@ const AddCategory = ( { onSuccess } ) => {
     const { user } = useAuth();
 
     const axiosSecure = useAxiosSecure();
-    const [, refetch] = useMediAll();
+    const [ , refetch] = useSellerMedicin();
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm(
         {
