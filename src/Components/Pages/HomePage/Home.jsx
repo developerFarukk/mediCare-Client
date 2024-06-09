@@ -22,9 +22,12 @@ const Home = () => {
 
             {/* discount section */}
             <div>
-                <div>
-                    <p className="text-2xl text-white">Discount section</p>
+
+                {/* Title section */}
+                <div className="text-center mt-4 p-4">
+                    <h2 className="text-3xl font-bold">Discount Medicin</h2>
                 </div>
+
                 <div >
                     <Discount></Discount>
                 </div>
@@ -39,7 +42,7 @@ const Home = () => {
             <div>
                 <Preview></Preview>
             </div>
-             
+
         </div>
     );
 };
