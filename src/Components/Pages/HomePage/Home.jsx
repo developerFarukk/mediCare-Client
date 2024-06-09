@@ -1,7 +1,6 @@
 import Bisness from "./BissnesSection/Bisness";
 import CardCategory from "./CardCategory/CardCategory";
 import Discount from "./DiscountSection/Discount";
-import Footer from "./Footer/Footer";
 import Preview from "./PreviewSection/Preview";
 import Slider from "./Slider/Slider";
 

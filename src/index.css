@@ -5,6 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 .open-sans-font {
-    font-family: "Open Sans", sans-serif;
-    
-  }
+  font-family: "Open Sans", sans-serif;
+
+}
+
+#root {
+  /* background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
+  /* background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%); */
+  max-width: 1280px;
+  text-align: center;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  
+}
