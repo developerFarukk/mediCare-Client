@@ -22,6 +22,7 @@ import SellerAdvertic from "../Components/Pages/SellerDashbordPage/SellerAdverti
 import UserPayment from "../Components/Pages/UserDashboard/UserPayment/UserPayment";
 import UpdateMedicin from "../Components/Pages/AdminDashboardPage/ManageCatagory/UpdateMedicin/UpdateMedicin";
 import SellerReport from "../Components/Pages/AdminDashboardPage/SalseReport/SellerReport";
+import CategoryDetails from "../Components/Pages/HomePage/CardCategory/CategoryDetails/CategoryDetails";
 
 
 
@@ -34,6 +35,10 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/category/:category_name",
+        element: <CategoryDetails></CategoryDetails>
       },
       {
         path: "login",

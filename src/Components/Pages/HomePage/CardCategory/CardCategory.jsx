@@ -11,8 +11,6 @@ const CardCategory = () => {
     const [medicinAll] = useMediAll();
     console.log(medicinAll);
 
-    // const find = medicinAll.find(medi => medi.category_name)
-    // console.log(find);
 
     const categories = medicinAll.reduce((acc, medi) => {
         if (!acc[medi.category_name]) {

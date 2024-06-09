@@ -11,7 +11,7 @@ const SubCardCategory = ({ category }) => {
 
     return (
         <div>
-            <div onClick={handleClick} className="block rounded-lg p-4 shadow-sm shadow-indigo-100 hover:bg-blue-100 border-blue-100 bg-blue-50 border">
+            <div  onClick={handleClick} className="block rounded-lg p-4 shadow-sm shadow-indigo-100 hover:bg-blue-100 border-blue-100 bg-blue-50 border">
 
                 {category.medicines.map(medicin => (
                     <div key={medicin._id}>
