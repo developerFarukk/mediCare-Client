@@ -1,9 +1,9 @@
-
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/AxiosSecure/useAxiosSecure";
 import useAuth from "../../Hooks/UseAuth/useAuth";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+import html2canvas from 'html2canvas-pro';
+import jsPDF from 'jspdf';
+
 import './invoice.css';
 import logo from "../../assets/Rgister/RegisterImg.png";
 import { Link } from "react-router-dom";
@@ -21,38 +21,40 @@ const Invoice = () => {
         enabled: !!user?.email,
     });
 
-    const generatePDF = async () => {
-        const invoiceElement = document.getElementById('invoice-box');
-        if (!invoiceElement) {
-            console.error('Invoice element not found');
-            return;
-        }
-
-        try {
-            const canvas = await html2canvas(invoiceElement, {
-                useCORS: true,
-                onclone: (document) => {
-                    document.body.style.backgroundColor = '#fff';
-                }
-            });
-
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save('invoice.pdf');
-        } catch (error) {
-            console.error('Error generating PDF:', error);
-        }
-    };
-
     const { date, email, price, status, transactionId, _id, menuItemIds = [], idPrice = [] } = payments;
+
+    const generatePDF = async () => {
+        const element = document.getElementById('content-id');
+        const canvas = await html2canvas(element, {
+            useCORS: true,
+            scale: 2,
+        });
+
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'pt',
+            format: 'letter',
+        });
+
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+
+        const imgProps = pdf.getImageProperties(imgData);
+        const imgWidth = imgProps.width;
+        const imgHeight = imgProps.height;
+        const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+
+        const imgX = (pdfWidth - imgWidth * ratio) / 2;
+        const imgY = 0; // Align at the top of the page
+
+        pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+        pdf.save('invoice.pdf');
+    };
 
     return (
         <div>
-            <div className="mt-6">
+            <div id="content-id" className="p-6">
                 <div id="invoice-box" className="invoice-box">
                     <table cellPadding="0" cellSpacing="0">
                         <tbody>
@@ -102,7 +104,7 @@ const Invoice = () => {
                                 <td>{transactionId}</td>
                             </tr>
                             <tr className="heading">
-                                <td>Item</td>
+                                <td>Medicin ID</td>
                                 <td>Price</td>
                             </tr>
                             {menuItemIds.map((item, index) => (
@@ -123,11 +125,11 @@ const Invoice = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="flex gap-4 justify-center p-4">
-                    <button className="btn btn-warning" onClick={generatePDF}>Download as PDF</button>
-                    <Link to="/"><button className="btn btn-primary" >Back to Home</button></Link>
 
-                </div>
+            </div>
+            <div className="flex gap-4 justify-center p-4">
+                <button className="btn btn-warning" onClick={generatePDF}>Download as PDF</button>
+                <Link to="/"><button className="btn btn-primary">Back to Home</button></Link>
             </div>
         </div>
     );

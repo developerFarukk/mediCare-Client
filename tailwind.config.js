@@ -6,7 +6,12 @@ export default {
     'node_modules/flowbite-react/lib/esm/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1D4ED8', // Example of hex color
+        secondary: 'rgb(75, 85, 99)', // Example of rgb color
+      },
+    },
   },
   plugins: [
     require('daisyui'),

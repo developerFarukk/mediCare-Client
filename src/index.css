@@ -9,6 +9,7 @@
 
 }
 
+
 #root {
   /* background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
   /* background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%); */
@@ -16,5 +17,5 @@
   text-align: center;
   margin: 0 auto;
   background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
-  
+
 }

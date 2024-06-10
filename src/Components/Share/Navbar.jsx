@@ -77,7 +77,7 @@ const Navbar = () => {
                             {navMenu}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost text-xl"> <img className="h-8 w-12" src={iconImg} alt="" /> Madicare</Link>
+                    <Link to="/" className="btn btn-ghost text-xl"> <img className="h-8 w-12" src={iconImg} alt="" /> MadiCare</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-4">
