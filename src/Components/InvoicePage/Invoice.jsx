@@ -7,6 +7,7 @@ import jsPDF from 'jspdf';
 import './invoice.css';
 import logo from "../../assets/Rgister/RegisterImg.png";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Invoice = () => {
     const { user } = useAuth();
@@ -54,6 +55,14 @@ const Invoice = () => {
 
     return (
         <div>
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Invoice | MediCare</title>
+                </Helmet>
+            </div>
+
+
             <div id="content-id" className="p-6">
                 <div id="invoice-box" className="invoice-box">
                     <table cellPadding="0" cellSpacing="0">

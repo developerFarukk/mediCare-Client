@@ -4,6 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
 import { Link } from "react-router-dom";
 import PaymentUser from "./PaymentUser";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -17,6 +18,13 @@ const CheckOut = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Check Out | MediCare</title>
+                </Helmet>
+            </div>
             
             <section className="">
                 <div className="grid grid-cols-1 lg:grid-cols-2 ">

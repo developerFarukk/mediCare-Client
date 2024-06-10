@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 
 import SelectRole from "./SelectRole";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -19,6 +20,14 @@ const ManageUser = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Manage User | MediCare</title>
+                </Helmet>
+            </div>
+
             <div>
                 <div>
                     <div className="flex justify-evenly my-4">

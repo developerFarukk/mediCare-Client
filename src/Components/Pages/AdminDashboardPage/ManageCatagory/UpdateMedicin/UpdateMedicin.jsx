@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -61,6 +62,13 @@ const UpdateMedicin = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Update Medicin | MediCare</title>
+                </Helmet>
+            </div>
 
             {/* Updated section */}
             <div>

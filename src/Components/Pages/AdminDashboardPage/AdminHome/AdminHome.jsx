@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import StatusCheckPayment from "./StatusCheckPayment";
+import { Helmet } from "react-helmet-async";
 
 const AdminHome = () => {
     const axiosSecure = useAxiosSecure();
@@ -36,6 +37,14 @@ const AdminHome = () => {
 
     return (
         <div>
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Admin home | MediCare</title>
+                </Helmet>
+            </div>
+
+
             <div className="mt-7">
                 <h1 className="text-3xl text-green-500 font-bold uppercase text-center">Total Sales Revenue</h1>
 
@@ -51,7 +60,7 @@ const AdminHome = () => {
                             </div>
                         </div>
 
-                        
+
 
                         {
                             allstatus.map(status => <StatusCheckPayment key={status.status} status={status}></StatusCheckPayment>)

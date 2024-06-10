@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const Payment = () => {
@@ -39,6 +40,14 @@ const Payment = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Payment Menegment | MediCare</title>
+                </Helmet>
+            </div>
+
             <div>
                 <div className="">
                     <div className="flex justify-evenly my-4">

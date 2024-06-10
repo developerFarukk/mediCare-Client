@@ -13,6 +13,7 @@ import html2canvas from 'html2canvas-pro';
 
 import { useRef } from 'react';
 import { useDownloadExcel } from 'react-export-table-to-excel';
+import { Helmet } from 'react-helmet-async';
 
 
 const SalesReport = () => {
@@ -201,6 +202,16 @@ const SalesReport = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Seller Report | MediCare</title>
+                </Helmet>
+            </div>
+
+
+
             {/* Titel section */}
             <div className="text-center">
                 <h2 className="lg:text-4xl text-2xl font-bold p-4"> Manage Seles Report </h2>

@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import useMedicinCard from "../../../../../Hooks/UseMedicincard/useMedicinCard";
 import { FaEye } from "react-icons/fa";
 import ShopView from "../../../Shop/ShopTable/ShopView";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -96,6 +97,13 @@ const CategoryDetails = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Category Details | MediCare</title>
+                </Helmet>
+            </div>
 
             {/* Banner section */}
             <div>

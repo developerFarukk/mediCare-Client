@@ -6,12 +6,13 @@ import { useRef } from "react";
 import Swal from "sweetalert2";
 // import useAuth from "../../../../Hooks/UseAuth/useAuth";
 import useSellerMedicin from "../../../../Hooks/SellerMedisinss/useSellerMedicin";
+import { Helmet } from "react-helmet-async";
 
 
 
 const ManageMedicin = () => {
 
-    const [ sellermedicin, refetch] = useSellerMedicin();
+    const [sellermedicin, refetch] = useSellerMedicin();
     const axiosSecure = useAxiosSecure();
     const modalRef = useRef(null);
 
@@ -59,6 +60,13 @@ const ManageMedicin = () => {
 
     return (
         <div>
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Manage Medicin | MediCare</title>
+                </Helmet>
+            </div>
+
             <div>
 
                 {/* Titel section */}

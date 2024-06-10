@@ -5,6 +5,7 @@ import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CartBanner from "./CartBanner/CartBanner";
+import { Helmet } from "react-helmet-async";
 // import { useState } from "react";
 
 const CartPage = () => {
@@ -77,6 +78,13 @@ const CartPage = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Shop Card | MediCare</title>
+                </Helmet>
+            </div>
 
             {/* cart Banner section */}
             <div>

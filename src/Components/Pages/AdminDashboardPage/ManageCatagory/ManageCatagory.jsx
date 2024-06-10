@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useMediAll from "../../../../Hooks/UseMedicinAll/useMediAll";
 import { useRef } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -64,6 +65,13 @@ const ManageCatagory = () => {
 
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title> Manage Category | MediCare</title>
+                </Helmet>
+            </div>
 
             {/* Titel section */}
             <div className="text-center">

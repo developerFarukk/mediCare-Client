@@ -23,6 +23,7 @@ import UserPayment from "../Components/Pages/UserDashboard/UserPayment/UserPayme
 import UpdateMedicin from "../Components/Pages/AdminDashboardPage/ManageCatagory/UpdateMedicin/UpdateMedicin";
 import SellerReport from "../Components/Pages/AdminDashboardPage/SalseReport/SellerReport";
 import CategoryDetails from "../Components/Pages/HomePage/CardCategory/CategoryDetails/CategoryDetails";
+import AdminRout from "../Authenication/AdminRout/AdminRout";
 
 
 
@@ -58,11 +59,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: <CheckOut></CheckOut>
+        element: <PrivetRout><CheckOut></CheckOut></PrivetRout>
       },
       {
         path: "invoice",
-        element: <Invoice></Invoice>
+        element: <PrivetRout><Invoice></Invoice></PrivetRout>
       }
     ]
   },
@@ -75,28 +76,28 @@ const Router = createBrowserRouter([
       // Admin Root Setion
       {
         path: "adminhome",
-        element: <AdminHome></AdminHome>
+        element: <AdminRout><AdminHome></AdminHome></AdminRout>
       },
       {
         path: "manageuser",
-        element: <ManageUser></ManageUser>
+        element: <AdminRout><ManageUser></ManageUser></AdminRout>
       },
       {
         path: "catagory",
-        element: <ManageCatagory></ManageCatagory>
+        element: <AdminRout><ManageCatagory></ManageCatagory></AdminRout>
       },
       {
         path: "updatecatagory/:id",
-        element: <UpdateMedicin></UpdateMedicin>,
+        element: <AdminRout><UpdateMedicin></UpdateMedicin></AdminRout>,
         loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/medicin/${params.id}`)
       },
       {
         path: "payment",
-        element: <Payment></Payment>
+        element: <AdminRout><Payment></Payment></AdminRout>
       },
       {
         path: "report",
-        element: <SellerReport></SellerReport>
+        element: <AdminRout><SellerReport></SellerReport></AdminRout>
       },
       {
         path: "advertise",
@@ -106,7 +107,7 @@ const Router = createBrowserRouter([
       // Seller dashboard *******************************
       {
         path: "sellerhome",
-        element: <SellerHome></SellerHome>
+        element: <PrivetRout><SellerHome></SellerHome></PrivetRout>
       },
       {
         path: "sellermedicin",
@@ -124,7 +125,7 @@ const Router = createBrowserRouter([
       // User Dashboard *****************************************
       {
         path: "userpay",
-        element: <UserPayment></UserPayment>
+        element: <PrivetRout><UserPayment></UserPayment></PrivetRout>
       },
 
     ]

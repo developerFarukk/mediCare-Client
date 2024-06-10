@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Bisness from "./BissnesSection/Bisness";
 import CardCategory from "./CardCategory/CardCategory";
 import Discount from "./DiscountSection/Discount";
@@ -9,6 +10,13 @@ import Slider from "./Slider/Slider";
 const Home = () => {
     return (
         <div>
+
+            {/* Dynamic Title section */}
+            <div>
+                <Helmet>
+                    <title>Home | MediCare</title>
+                </Helmet>
+            </div>
 
             {/* Slider section */}
             <div>
