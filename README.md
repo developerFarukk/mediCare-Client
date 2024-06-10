@@ -3,11 +3,14 @@
 
 Welcome to MediCare, a comprehensive platform for managing and purchasing medicines seamlessly. This application provides a user-friendly interface for users and powerful administrative tools for managing the system.
 
+## Admin Credentials
+- **Username/Email**: medicare@gmail.com
+- **Password**: Zxc0@#
+
 
 ## Live Site URL
 ![PropIT LOgo](/src/assets//Rgister//RegisterImg.png)
-[Visit MediCare](https://medicare-2059.web.app)
-[Visit MediCare](https://medicare-2059.firebaseapp.com)
+[Visit MediCare Website](https://medicare-2059.web.app)
 
 ## Features
 
