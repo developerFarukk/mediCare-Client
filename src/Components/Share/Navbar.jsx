@@ -5,12 +5,16 @@ import { toast } from "react-toastify";
 
 import iconImg from "../../assets/Rgister/RegisterImg.png"
 import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
+// import useRole from "../../Hooks/Role/useRole";
 
 
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const [ shop ] = useMedicinCard();
+    const [shop] = useMedicinCard();
+    // const navigate = useNavigate();
+    // const [ role ] = useRole();
+    // console.log(role);
 
     const handleSignOut = () => {
         logOut()
@@ -19,6 +23,8 @@ const Navbar = () => {
             })
             .catch()
     }
+
+
 
     const navMenu = <>
 
@@ -33,7 +39,7 @@ const Navbar = () => {
             </div>
         </NavLink></li>
 
-        <li><Link  className="p-1 m-0" >
+        <li><Link className="p-1 m-0" >
 
             <select className="select select-bordered bg-none select-sm p-0 m-1">
                 <option>English</option>
@@ -44,6 +50,18 @@ const Navbar = () => {
         </Link></li>
 
     </>
+
+    // const handleDashboardClick = () => {
+    //     if (role) {
+    //         if (role.role === 'admin') {
+    //             navigate('deshoard/adminhome');
+    //         } else if (role.role === 'seller') {
+    //             navigate('/sellerhome');
+    //         } else {
+    //             navigate('/userpay');
+    //         }
+    //     }
+    // };
 
     const profile = <>
         <div className="dropdown dropdown-end">
@@ -59,7 +77,7 @@ const Navbar = () => {
                 <li>
                     <a> Update Profile </a>
                 </li>
-                <li><Link to="/deshoard">Dashboard</Link></li>
+                <li><Link to="/deshoard" >Dashboard</Link></li>
                 <li><Link onClick={handleSignOut}>Logout</Link></li>
             </ul>
         </div>
@@ -86,7 +104,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <Link  className="btn">{profile}</Link> : <Link to="login" className="btn">Join Us</Link>
+                        user ? <Link className="btn">{profile}</Link> : <Link to="login" className="btn">Join Us</Link>
                     }
 
                 </div>

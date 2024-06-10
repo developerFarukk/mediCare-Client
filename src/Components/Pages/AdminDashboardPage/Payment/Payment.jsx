@@ -46,32 +46,32 @@ const Payment = () => {
                         <h2 className="text-3xl">Total Payment: {payment.length}</h2>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="table table-zebra w-full">
+                        <table className="table  w-full">
                             {/* head */}
-                            <thead>
-                                <tr>
-                                    <th></th>
+                            <thead className="bg-green-300">
+                                <tr className="text-black">
+                                    <th>SL</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Invoice ID</th>
                                     <th>Date</th>
-                                    <th className="">Status</th>
+                                    <th className="text-center">Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="">
                                 {
-                                    payment.map((pay, index) => <tr key={pay._id}>
+                                    payment.map((pay, index) => <tr className="hover:bg-blue-200 " key={pay._id}>
                                         <th>{index + 1}</th>
                                         <td>{pay.name}</td>
                                         <td>{pay.email}</td>
                                         <td>{pay._id}</td>
                                         <td>{new Date(pay.date).toLocaleDateString()}</td>
 
-                                        <td>
+                                        <td className="text-center">
                                             {/* <button className="btn btn-sm  bg-red-800 rounded-full"><p>{pay.status}</p></button> */}
                                             {pay.status === 'Paid' ? 'Paid' : <button
                                                 onClick={() => handleStatus(pay)}
-                                                className="btn btn-sm  bg-red-800 rounded-full">
+                                                className="btn btn-sm border-none bg-red-800 rounded-full">
                                                 {pay.status}
                                             </button>}
                                         </td>
