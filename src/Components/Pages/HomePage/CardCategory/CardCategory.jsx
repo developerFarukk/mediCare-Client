@@ -25,7 +25,7 @@ const CardCategory = () => {
 
     // console.log('Categories:', categories);
 
-    const uniqueCategories = Object.values(categories).slice(0, 6)
+    const uniqueCategories = Object.values(categories)
     // console.log(uniqueCategories);
 
 

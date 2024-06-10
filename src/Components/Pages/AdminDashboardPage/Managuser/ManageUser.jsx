@@ -26,10 +26,10 @@ const ManageUser = () => {
                         <h2 className="text-3xl">Total Users: {users.length}</h2>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="table table-zebra w-full">
+                        <table className="table   w-full">
                             {/* head */}
-                            <thead>
-                                <tr>
+                            <thead className="bg-green-300  rounded-full">
+                                <tr className="text-black ">
                                     <th></th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -37,10 +37,10 @@ const ManageUser = () => {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className=" bg-none  ">
                                 {
-                                    users.map((user, index) => <tr key={user._id}>
-                                        <th>{index + 1}</th>
+                                    users.map((user, index) => <tr className="bg-none hover:bg-blue-200" key={user._id}>
+                                        <th className="">{index + 1}</th>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
 

@@ -122,7 +122,7 @@ console.log(medicin);
                                     <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
 
                                         {/* Table Hader section */}
-                                        <thead className="bg-gray-50 dark:bg-gray-800">
+                                        <thead className="bg-gray-50 justify-center dark:bg-gray-800">
                                             <tr>
                                                 <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     <div className="flex items-center gap-x-3">
@@ -130,34 +130,34 @@ console.log(medicin);
                                                     </div>
                                                 </th>
 
-                                                <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                <th scope="col" className="py-3.5 px-4 text-sm font-normal text-gray-500 dark:text-gray-400">
                                                     <div className="flex items-center gap-x-3">
                                                         <span>Image</span>
                                                     </div>
                                                 </th>
 
-                                                <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                    <button className="flex items-center gap-x-2">
-                                                        <span>Item Name</span>
+                                                <th scope="col" className="px-12 py-3.5 text-sm font-normal  text-gray-500 dark:text-gray-400">
+                                                    <button className="  gap-x-2">
+                                                        <span className="text-center">Item Name</span>
                                                     </button>
                                                 </th>
 
-                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal  text-gray-500 dark:text-gray-400">
                                                     <button className="flex items-center gap-x-2">
                                                         <span>Generic Name</span>
                                                     </button>
                                                 </th>
 
-                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Category</th>
+                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal  text-gray-500 dark:text-gray-400">Category</th>
 
-                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Company Name</th>
+                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal  text-gray-500 dark:text-gray-400">Company Name</th>
 
                                                 <th scope="col" className=" py-3.5  text-sm font-normal   text-gray-500 dark:text-gray-400">Action</th>
                                             </tr>
                                         </thead>
 
                                         {/* Table body section */}
-                                        <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                        <tbody className="bg-white divide-y  divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
 
                                             {
                                                 medicin.map((item, index) => <tr key={item._id}>
@@ -174,12 +174,12 @@ console.log(medicin);
                                                     </td>
 
                                                     <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                        <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 ">
+                                                        <div className="inline-flex items-center  px-3 py-1 rounded-full gap-x-2 ">
                                                             <h2 className="text-sm font-normal text-emerald-500">{item.item_name}</h2>
                                                         </div>
                                                     </td>
 
-                                                    <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.item_generic_name}</td>
+                                                    <td className=" text-center justify-center text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.item_generic_name}</td>
                                                     <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.category_name}</td>
                                                     <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.company_name}</td>
                                                     <td className="px-4 py-4 text-sm whitespace-nowrap">

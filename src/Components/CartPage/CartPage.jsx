@@ -5,12 +5,12 @@ import useMedicinCard from "../../Hooks/UseMedicincard/useMedicinCard";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CartBanner from "./CartBanner/CartBanner";
-import { useState } from "react";
+// import { useState } from "react";
 
 const CartPage = () => {
     const [shop, refetch] = useMedicinCard();
     const axiosSecure = useAxiosSecure();
-    const {medicin, setMedicin} = useState([]);
+    // const {medicin, setMedicin} = useState([]);
     const totalPrice = shop.reduce((total, item) => total + item?.per_unit_price, 0);
 
     const handleDelete = id => {
@@ -70,7 +70,7 @@ const CartPage = () => {
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     refetch();
-                    setMedicin();
+                    // setMedicin();
                 }
             });
     };
@@ -117,7 +117,7 @@ const CartPage = () => {
                                             <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Generic Name</th>
                                             <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Category</th>
                                             <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Company Name</th>
-                                            <th scope="col" className="py-3.5 text-sm font-normal text-gray-500 dark:text-gray-400">Action</th>
+                                            <th scope="col" className="py-3.5 text-sm text-center font-normal text-gray-500 dark:text-gray-400">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -128,7 +128,7 @@ const CartPage = () => {
                                                     <div className="inline-flex items-center gap-x-3">
                                                         <button onClick={() => handleQuantityChange(item._id, item.quantity - 1)} className="btn btn-sm btn-primary">-</button>
                                                         <span>{item.quantity}</span>
-                                                        <p>{medicin}</p>
+                                                        <p> 00 </p>
                                                         <button onClick={() => handleQuantityChange(item._id, item.quantity + 1)} className="btn btn-sm btn-primary">+</button>
                                                     </div>
                                                 </td>
