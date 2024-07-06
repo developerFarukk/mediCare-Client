@@ -39,7 +39,7 @@ const Navbar = () => {
             </div>
         </NavLink></li>
 
-        <li><Link className="p-1 m-0" >
+        {/* <li><Link className="p-1 m-0" >
 
             <select className="select select-bordered bg-none select-sm p-0 m-1">
                 <option>English</option>
@@ -47,7 +47,7 @@ const Navbar = () => {
             </select>
 
 
-        </Link></li>
+        </Link></li> */}
 
     </>
 
