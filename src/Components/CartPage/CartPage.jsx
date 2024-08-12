@@ -117,42 +117,96 @@ const CartPage = () => {
                         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-gray-800">
-                                        <tr>
-                                            <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Name</th>
-                                            <th scope="col" className="py-3.5 px-4 text-sm font-normal text-center rtl:text-right text-gray-500 dark:text-gray-400">Quantity</th>
-                                            <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Price per unit</th>
-                                            <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Generic Name</th>
-                                            <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Category</th>
-                                            <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Company Name</th>
-                                            <th scope="col" className="py-3.5 text-sm text-center font-normal text-gray-500 dark:text-gray-400">Action</th>
+                                    <thead className="bg-green-300 dark:bg-gray-800 font-bold text-black">
+                                        <tr className="">
+                                            <th
+                                                scope="col"
+                                                className="py-3.5 px-4 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Name
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="py-3.5 px-4 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Quantity
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="px-12 py-3.5 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Price per unit
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="px-4 py-3.5 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Generic Name
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="px-4 py-3.5 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Category
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="px-4 py-3.5 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Company Name
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                className="py-3.5 text-sm  text-center  dark:text-gray-400"
+                                            >
+                                                Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                                         {shop.map((item) => (
                                             <tr key={item._id}>
-                                                <td className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">{item.item_name}</td>
-                                                <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <div className="inline-flex items-center gap-x-3">
-                                                        <button onClick={() => handleQuantityChange(item._id, item.quantity - 1)} className="btn btn-sm btn-primary">-</button>
+                                                <td className="py-3.5 px-4 text-sm font-normal text-center text-gray-500 dark:text-gray-400">
+                                                    {item.item_name}
+                                                </td>
+                                                <td className="px-4 py-4 text-sm font-medium text-center text-gray-700 whitespace-nowrap">
+                                                    <div className="inline-flex items-center justify-center gap-x-3">
+                                                        <button
+                                                            onClick={() => handleQuantityChange(item._id, item.quantity - 1)}
+                                                            className="btn btn-sm btn-primary"
+                                                        >
+                                                            -
+                                                        </button>
                                                         <span>{item.quantity}</span>
-                                                        <p> 00 </p>
-                                                        <button onClick={() => handleQuantityChange(item._id, item.quantity + 1)} className="btn btn-sm btn-primary">+</button>
+                                                        <p>00</p>
+                                                        <button
+                                                            onClick={() => handleQuantityChange(item._id, item.quantity + 1)}
+                                                            className="btn btn-sm btn-primary"
+                                                        >
+                                                            +
+                                                        </button>
                                                     </div>
                                                 </td>
-                                                <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2">
-                                                        <h2 className="text-sm font-normal text-emerald-500">$ {item.per_unit_price.toFixed(2)} </h2>
+                                                <td className="px-12 py-4 text-sm font-medium text-center text-gray-700 whitespace-nowrap">
+                                                    <div className="inline-flex px-3 py-1 rounded-full gap-x-2">
+                                                        <h2 className="text-sm font-normal text-center text-emerald-500">
+                                                            $ {item.per_unit_price.toFixed(2)}
+                                                        </h2>
                                                     </div>
                                                 </td>
-                                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.item_generic_name}</td>
-                                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.category_name}</td>
-                                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{item.company_name}</td>
+                                                <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {item.item_generic_name}
+                                                </td>
+                                                <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {item.category_name}
+                                                </td>
+                                                <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {item.company_name}
+                                                </td>
                                                 <td className="px-4 py-4 text-sm whitespace-nowrap">
                                                     <div className="flex items-center gap-x-6">
                                                         <button className="btn btn-sm bg-white border-none btn-secondary transition-colors duration-200
                                                     focus:outline-none">
-                                                            <p className="">Select</p>
                                                         </button>
                                                         <button onClick={() => handleDelete(item._id)} className="btn btn-sm btn-secondary bg-white border-none text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
                                                             <MdDelete className="h-6 w-6" />
@@ -167,6 +221,8 @@ const CartPage = () => {
                         </div>
                     </div>
                 </div>
+
+
             </section>
 
             {/* Back to Home page */}
@@ -180,3 +236,6 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
+
+
